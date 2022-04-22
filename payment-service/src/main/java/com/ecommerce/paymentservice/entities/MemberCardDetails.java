@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "card_details")
-public class CardPayment {
+public class MemberCardDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -23,7 +23,7 @@ public class CardPayment {
     private String memberName;
 
     @Column(name = "card_number",nullable = false,unique = true)
-    private Double cardNumber;
+    private Long cardNumber;
 
 
     @Column(name = "card_expiry", nullable = false,unique = true)
@@ -39,7 +39,7 @@ public class CardPayment {
     private Integer cardType;
 
     @Column(name = "card_balance", nullable = false)
-    private Integer cardBalance;
+    private Double cardBalance;
 
 
 }

@@ -25,13 +25,13 @@ public class PaymentTransaction {
     private String memberName;
 
     @Column(name = "transaction_id",  nullable = false,unique = true)
-    private String transactionId;
+    private Long transactionId;
 
     @Column(name = "transaction_amount", nullable = false)
-    private String transactionAmount;
+    private Double  transactionAmount;
 
     @Column(name = "card_number", nullable = false)
-    private Double cardNumber;
+    private Long cardNumber;
 
 
     @Column(name = "card_expiry", nullable = false)
