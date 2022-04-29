@@ -33,10 +33,10 @@ public class MemberCardDetails {
     private Integer cardCvv;
 
     @Column(name = "card_brand", nullable = false)
-    private Integer cardBrand;
+    private String cardBrand;
 
     @Column(name = "card_type", nullable = false)
-    private Integer cardType;
+    private String cardType;
 
     @Column(name = "card_balance", nullable = false)
     private Double cardBalance;

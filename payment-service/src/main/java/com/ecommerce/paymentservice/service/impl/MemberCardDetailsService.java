@@ -22,12 +22,13 @@ public class MemberCardDetailsService {
     public String saveMemberPaymentTransaction(PaymentTransaction paymentTransaction) {
         String response = null;
         MemberCardDetails memberCardDetails = memberCardDetailsRepository.findByCardNumber(paymentTransaction.getCardNumber());
-        if(memberCardDetails.getCardNumber() == paymentTransaction.getCardNumber() && memberCardDetails.getCardCvv() == paymentTransaction.getCardCvv() && memberCardDetails.getCardCvv()==paymentTransaction.getCardCvv()){
+        if(memberCardDetails.getCardNumber().longValue() == paymentTransaction.getCardNumber().longValue() && memberCardDetails.getCardCvv().intValue() == paymentTransaction.getCardCvv().intValue() && memberCardDetails.getCardExpiry().intValue()==paymentTransaction.getCardExpiry().intValue()){
            if(memberCardDetails.getCardBalance()<paymentTransaction.getTransactionAmount()){
                response = "insufficient balance";
            }else{
+               paymentTransaction.setResponseMessage("transaction_success");
                paymentTransactionRepository.save(paymentTransaction);
-               response = "transaction_success";
+               response = "payment_successful";
            }
         }else{
             System.out.println("Invalid Member Card Details");

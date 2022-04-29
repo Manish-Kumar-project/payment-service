@@ -41,12 +41,17 @@ public class PaymentTransaction {
     private Integer cardCvv;
 
     @Column(name = "card_brand", nullable = false)
-    private Integer cardBrand;
+    private String cardBrand;
 
     @Column(name = "card_type", nullable = false)
-    private Integer cardType;
+    private String cardType;
 
-    @Column(name = "card_balance", nullable = false)
+    @Column(name = "response_message", nullable = false)
+    private String responseMessage;
+
+
+
+    @Column(name = "card_balance")
     private Integer cardBalance;
 
 }
